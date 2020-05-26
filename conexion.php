@@ -2,7 +2,7 @@
 
 function connectDB(){
 
-    $server = "localhost";
+    $server = "40.84.213.64";
     $user = "root";
     $pass = "";
     $bd = "reservas_utec";
