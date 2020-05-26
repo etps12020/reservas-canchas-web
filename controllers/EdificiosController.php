@@ -23,7 +23,8 @@ class EdificiosController{
     }
 
     public function editar(){
-        $this->view->show('edificios/editar.php');
+        $edificio = $this->edificios->obtenerEdificio($_GET['id'])[0];
+        $this->view->show('edificios/editar.php' , array("edificio"=> $edificio));
     }
     
 }

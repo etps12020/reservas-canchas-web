@@ -51,7 +51,7 @@
                         
                         <td><?php echo $edificio->estado;?></td>
                         <td>
-                            <a class="btn btn-success"    href="./?controlador=edificios&accion=editar"  >
+                            <a class="btn btn-success"    href="./?controlador=edificios&accion=editar&id=<?php echo $edificio->id;?>"  >
                                 <ion-icon name="create-outline"></ion-icon>
                             </a>		
                         </td>                                        

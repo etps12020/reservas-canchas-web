@@ -14,20 +14,31 @@
 <div class="container">
   <h4 align="center">Bienvenido Administrador del Sistema</h4>
   <br><h2 align="center" style="background-color:#8A084B"><font color=White>Crear edificio</font></h2></br>
-  <p align="center">Ingresar Datos del edificio </p>
+  <p align="center">Editar Datos del edificio </p>
   <form>
+
+	
+  <div class="form-group text-center">
+		<img 
+			alt="<?php echo $edificio->nombre;?>"
+			src="data:image/png;base64 , <?php echo $edificio->imagen;?>  ";															
+			width="350"  
+			height="300"  
+	/>
+	</div>
+
     <div class="form-group">
       <label for="nombre">Nombre del Edificio:</label>
-      <input type="nombre" class="form-control" id="nombre" placeholder="Ingrese el nombre del edificio">
+      <input type="nombre" class="form-control"  value="<?php echo $edificio->nombre;?>"  id="nombre" placeholder="Ingrese el nombre del edificio">
     </div>
     <div class="form-group">
       <label for="direccion">Dirección:</label>
-      <input type="direccion" class="form-control" id="direccion" placeholder="Ingrese la dirección del edificio">
+      <input type="direccion" class="form-control" value="<?php echo $edificio->direccion;?>"  id="direccion" placeholder="Ingrese la dirección del edificio">
     </div>
 	
 	<div class="form-group">
       <label for="descripcion">Descripción:</label>
-      <input type="descripcion" class="form-control" id="descripcion" placeholder="Ingrese la descripción del edificio">
+      <input type="descripcion" class="form-control"  value="<?php echo $edificio->descripcion;?>"  id="descripcion" placeholder="Ingrese la descripción del edificio">
     </div>
 
 	<!--Adjuntar foto del edificio -->
