@@ -13,6 +13,9 @@
     ?>  
 
     <div class="container">
+          <h4 align="center">Bienvenido Administrador del Sistema</h4>
+        <br><h2 align="center" style="background-color:#8A084B"><font color=White>Ingresar usuario</font></h2></br>
+        <p align="center">Ingresar datos de usuario </p>
         <form action="">
 
             <div class="form-group">

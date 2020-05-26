@@ -13,6 +13,8 @@
     ?>  
 
     <div class="container">
+        <br><h2 align="center" style="background-color:#8A084B"><font color=White>Editar usuario</font></h2></br>
+        <p align="center">Editar datos de usuario </p>
         <form action="">
 
             <div class="form-group">
