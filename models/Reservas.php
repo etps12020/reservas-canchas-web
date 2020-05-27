@@ -51,6 +51,9 @@ class Reservas{
     public function ingresar_reserva($fecha , $usuario , $usuarioAd  , $dui , $hora  , $cancha , $tipo){
 
       $curl = curl_init();
+      $usuario = ($usuario!=null) ?  "\n \"usuario\": \"$usuario\",\n" : "";
+      $usuarioAd= ($usuarioAd!=null) ? "\"usuarioAd\" : $usuarioAd , \n" : "";
+      $dui = ($dui!=null) ? "\"dui\" : \"$dui\" , \n" :"";
 
       curl_setopt_array($curl, array(
       CURLOPT_URL => BASE_URL."/reservacion.php",
@@ -61,11 +64,13 @@ class Reservas{
       CURLOPT_FOLLOWLOCATION => true,
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => "POST",
-      CURLOPT_POSTFIELDS =>"{\n\n \"fecha\" :   \"2020-06-12\" , \n \"usuario\": 1,\n \"usuarioAd\" : 1 , \n \"dui\" : \"01070731-1\" , \n \"hora\": 1 ,\n \"cancha\" :  3 , \n \"tipo\" : 1\n  \n}",
+      CURLOPT_POSTFIELDS =>"{\n\n \"fecha\" :   \"$fecha\" , $usuario  $usuarioAd $dui \"hora\": $hora ,\n \"cancha\" :  $cancha , \n \"tipo\" : $tipo\n  \n}",
       CURLOPT_HTTPHEADER => array(
           "Content-Type: text/plain"
       ),
       ));
+
+      
 
       $response = curl_exec($curl);
 

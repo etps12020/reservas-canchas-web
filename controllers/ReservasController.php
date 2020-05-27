@@ -60,6 +60,7 @@ class ReservasController{
         $idUsuario = $_SESSION[USUARIO]->id;
         $idRol  = $_SESSION[USUARIO]->idRol;
 
+        $dui =$_POST['dui'];
         $fecha = $_POST['fecha'];
         $idHorario =  $_POST['idHorario'];
         $cancha = $_POST['cancha'];

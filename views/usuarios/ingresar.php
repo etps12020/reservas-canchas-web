@@ -13,35 +13,35 @@
     ?>  
 
     <div class="container">
-          <h4 align="center">Bienvenido Administrador del Sistema</h4>
+        <h4 align="center">Bienvenido Administrador del Sistema</h4>
         <br><h2 align="center" style="background-color:#8A084B"><font color=White>Ingresar usuario</font></h2></br>
         <p align="center">Ingresar datos de usuario </p>
-        <form action="">
+        <form id="frmIngresarUsuarios"  >
 
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" required/>
+                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre"  autocomplete="off"  required/>
             </div>
 
             <div class="form-group">
                 <label for="dui">Dui:</label>
-                <input type="text" name="dui" id="dui" class="form-control" placeholder="Dui"   required/>
+                <input type="text" name="dui" id="dui" class="form-control" placeholder="Dui"  autocomplete="off"    required/>
             </div>  
 
 
             <div class="form-group">
                 <label for="carnet">Carnet:</label>
-                <input type="text" name="carnet" id="carnte" class="form-control"  placeholder="Carnet"    required />
+                <input type="text" name="carnet" id="carnte" class="form-control"  placeholder="Carnet"  autocomplete="off"     required />
             </div>
 
             <div class="form-group">
                 <label for="correo">Correo:</label>
-                <input type="text" name="correo" id="correo" class="form-control"  placeholder="correo" required/>
+                <input type="text" name="correo" id="correo" class="form-control"  placeholder="correo" autocomplete="off"   required/>
             </div>
 
             <div class="form-group">
                 <label for="telefono">Telefono:</label>
-                <input type="text" name="telefono" id="telefono" class="form-control"  required />
+                <input type="text" name="telefono" id="telefono" class="form-control"  autocomplete="off"   required />
             </div>
 
             <div class="form-group">
@@ -70,6 +70,6 @@
 	<?php
         include ("views/partials/scripts.php");
     ?> 
-	<script src="scripts/usuarios.js" ></script>   
+	<script src="scripts/ingresar_usuarios.js" ></script>   
 </body>
 </html>

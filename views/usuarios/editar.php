@@ -15,7 +15,9 @@
     <div class="container">
         <br><h2 align="center" style="background-color:#8A084B"><font color=White>Editar usuario</font></h2></br>
         <p align="center">Editar datos de usuario </p>
-        <form action="">
+        <form id="frmEditarUsuarios"   >
+
+            <input type="hidden" name="id" id="id"  value="<?php  echo $_GET['id'];?>" >
 
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
@@ -44,13 +46,23 @@
             </div>
 
             <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" name="password" id="password" class="form-control" value="<?php echo $usuario->password;?>"    placeholder="Contraseña"   autocomplete="off"  required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmacion">Confirmación contraseña</label>
+                <input type="password" name="confirmacion" id="confirmacion" class="form-control" value="<?php echo $usuario->password;?>"   placeholder="Confirmación contraseña" autocomplete="off"  required>
+            </div>
+
+            <div class="form-group">
                 <label for="rol">Rol usuario:</label>
                 <select name="rol" id="rol" class="form-control">
                     <?php
                         foreach ($rolesUsuarios as $key => $rol) {
                             $selected = ( $rol->id==$usuario->idRol) ? "selected" : "";
                             ?>
-                            <option value="<?php $rol->id;?>"  <?php echo $selected;?>   >  <?php echo $rol->rol;?>   </option>
+                            <option value="<?php echo $rol->id;?>"  <?php echo $selected;?>   >  <?php echo $rol->rol;?>   </option>
                             <?php
                         }
                     ?>
@@ -60,12 +72,12 @@
             
             <div class="form-group">
                 <label for="estado">Estado:</label>
-                <select name="" id="" class="form-control">
+                <select name="estado" id="estado" class="form-control">
                     <?php
                         foreach ($estadosUsuarios as $key => $estado) {
                             $selected =  ($estado->id == $usuario->idEstado ) ? "selected" : "";
                             ?>
-                                <option value="<?php $estado->id;?>"> <?php echo $estado->estado;   ?></option>
+                                <option value="<?php echo $estado->id;?>"> <?php echo $estado->estado;   ?></option>
                             <?php
                         }
                     ?>
@@ -86,6 +98,7 @@
 	<?php
         include ("views/partials/scripts.php");
     ?> 
-	<script src="scripts/usuarios.js" ></script>   
+	
+    <script src="scripts/editar_usuarios.js"  ></script>
 </body>
 </html>

@@ -28,6 +28,7 @@ $(document).ready(function(){
                 url: './?controlador=reservas&accion=ingresar_reserva'  ,
                 method: 'POST',
                 data: {
+                    dui ,
                     tipoReserva , 
                     cancha , 
                     fecha , 

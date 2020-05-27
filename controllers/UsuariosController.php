@@ -44,6 +44,38 @@ class UsuariosController{
                   "usuario" => $usuario , 
                   "estadosUsuarios" => $estadosUsuarios ) );
     }
+
+    public function ingresarUsuario(){
+
+        $nombre = $_POST['nombre'];
+        $dui  =  $_POST['dui'];
+        $carnet =  $_POST['carnet'];
+        $correo = $_POST['correo'];
+        $telefono = $_POST['telefono'];
+        $rol = $_POST['rol'];
+
+        $response  =$this->usuarios->ingresarUsuario($nombre  , $dui  , $carnet ,  $correo ,  $telefono , $rol  );
+
+        echo json_encode($response);
+    }
+
+    public function actualizar(){
+
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $dui = $_POST['dui'];
+        $carnet = $_POST['carnet'];
+        $correo = $_POST['correo'];
+        $telefono = $_POST['telefono'];
+        $rol = $_POST['rol'];
+        $password = $_POST['password'];
+        $estado = $_POST['estado'];
+        $response =$this->usuarios->actualizarUsuarioRolAdmin
+        ($id , $dui , $nombre  , $correo , $carnet , $telefono , $password , $rol , $estado);
+        echo json_encode($response);
+
+    }
+
     
 
 }
