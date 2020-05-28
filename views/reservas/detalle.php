@@ -39,7 +39,7 @@
             <div class="form-group">
                 <label for="">Hora Reserva:</label>
                 <input type="text" name="" id="" 
-                class="form-control" placeholder="Hora Reserva" disabled/>
+                class="form-control" placeholder="Hora Reserva"  value="<?php echo $detalleReserva->Horario;?>"  disabled/>
             </div>
 
             <div class="form-group">
