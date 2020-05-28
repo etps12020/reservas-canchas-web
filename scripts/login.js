@@ -24,8 +24,27 @@ $(document).ready(function(){
 
             if(response.length){
               let userLogin = response[0];
-              alert(`Bienvenido  ${userLogin.nombre}   `)
-              location.href="./"; //Redirecciona al index
+
+              const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: 'success',
+                title: `Bienvenido  ${userLogin.nombre}   `
+              }).then(function(){
+                location.href="./"; //Redirecciona al index
+              })
+              
+              
               
             }else{
               console.log('Respuesta vacia');
