@@ -74,7 +74,7 @@
 
             <div class="form-group">
                 <label for="fecha">Selecciona la fecha:</label>
-                <input type="date" name="fecha" id="fecha" class="form-control" placeholder="Fecha reserva"  required   >
+                <input type="date" name="fecha" id="fecha" class="form-control" placeholder="Fecha reserva"  min="<?php echo date("Y-m-d")?>"   required   >
             </div>
 
 

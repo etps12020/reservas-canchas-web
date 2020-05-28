@@ -25,55 +25,74 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="">Fecha:</label>
-                    <input type="date" name="" id="" class="form-control"  min="<?php echo date("Y-m-d")?>"  >
+                    <label for="fechaReservas">Fecha:</label>
+                    <input type="date" name="fechaReservas" id="fechaReservas" class="form-control" onchange="location.href='./?controlador=reservas&accion=reservas&fecha='+this.value " 
+                    min="<?php echo date("Y-m-d")?>" 
+                    value="<?php echo  (isset($_GET['fecha'])) ? $_GET['fecha'] : ""  ?>"
+                     />
                 </div>
             </div>        
-            
+            <div class="col-md-6">
+                <a href="./?controlador=reservas&accion=reservas"   class="btn btn-default">
+                    <ion-icon name="albums-outline"></ion-icon>  Ver todas
+                </a>
+            </div>            
         </div>
         
         
+        <?php
+            if(is_array($reservas)){
+        ?>
+            <table id="tblReservas" style="width:100%; margin-top:5em; ">
+                <thead class="bg-info text-white">
+                    <th>Numero reservacion</th>
+                    <th>Nombre completo</th>
+                    <th>Telefono</th>
+                    <th>Fecha reservacion</th>
+                    <th>Fecha Creación</th>                
+                    <th>Hora Reserva</th>
+                    <th>Cancha</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach ($reservas as $key => $reserva) {
+                            ?>
+                            <tr>
+                                <td><?php echo $reserva->numReservacion;?></td>
+                                <td><?php echo $reserva->nombreCompleto;?></td>
+                                <td><?php echo $reserva->telefono;?></td>
+                                <td><?php echo date("d/m/Y" , strtotime($reserva->fechaReservacion)  );?></td>
+                                <td><?php echo date("d/m/Y" ,  strtotime($reserva->fechayHoraCreacion)  );?></td>
+                                <td><?php echo date("H:i:s A" , strtotime($reserva->horaInicio)  );?></td>
+                                <td><?php echo $reserva->cancha;?></td>
+                                <td><?php echo $reserva->estado;?></td>
+                                <td>
+                                    <a class="btn btn-success" href="./?controlador=reservas&accion=detalle_reserva&id=<?php echo $reserva->numReservacion?>"   >
+                                        <ion-icon name="create-outline"></ion-icon>
+                                    </a>
+                                </td>
+                            
+                            </tr>
 
-        <table id="tblReservas" style="width:100%; margin-top:5em; ">
-            <thead class="bg-info text-white">
-                <th>Numero reservacion</th>
-                <th>Nombre completo</th>
-                <th>Telefono</th>
-                <th>Fecha reservacion</th>
-                <th>Fecha Creación</th>                
-                <th>Hora Reserva</th>
-                <th>Cancha</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-            </thead>
-            <tbody>
-                <?php
-                    foreach ($reservas as $key => $reserva) {
-                        ?>
-                        <tr>
-                            <td><?php echo $reserva->numReservacion;?></td>
-                            <td><?php echo $reserva->nombreCompleto;?></td>
-                            <td><?php echo $reserva->telefono;?></td>
-                            <td><?php echo date("d/m/Y" , strtotime($reserva->fechaReservacion)  );?></td>
-                            <td><?php echo date("d/m/Y" ,  strtotime($reserva->fechayHoraCreacion)  );?></td>
-                            <td><?php echo date("H:i:s A" , strtotime($reserva->horaInicio)  );?></td>
-                            <td><?php echo $reserva->cancha;?></td>
-                            <td><?php echo $reserva->estado;?></td>
-                            <td>
-                                <a class="btn btn-success" href="./?controlador=reservas&accion=detalle_reserva&id=<?php echo $reserva->numReservacion?>"   >
-                                    <ion-icon name="create-outline"></ion-icon>
-                                </a>
-                            </td>
-                        
-                        </tr>
+                            <?php
+                        }
+                    ?>            
+                </tbody>
+            </table>
 
-                        <?php
-                    }
-                ?>
+        <?php
+            }else{
+        ?>  
+                <div style="min-height:400px;">
+                    <h4 class="text-center"><?php echo $reservas->mensaje?></h4>
+                </div>
+                
+        <?php
+            }        
+        ?>
 
-            
-            </tbody>
-        </table>
 
 
 		

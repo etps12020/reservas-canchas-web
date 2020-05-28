@@ -12,16 +12,38 @@ $(document).ready(function(){
         let fecha =  $("#fecha").val();
 
         if(dui  ==""){
-            alert("Seleccione un estudiante")
+            
+            Swal.fire(
+                'Campos requeridos!',
+                "Seleccione un estudiante",
+                'warning'
+            );
         }
         else if(  tipoReserva  ==""){
-            alert("Seleccione un tipo de reserva")
-        }else if(  cancha  == ""  ){
-            alert("Selecciona una cancha");
+            Swal.fire(
+                'Campos requeridos!',
+                "Seleccione un tipo de reserva",
+                'warning'
+            );            
+        }else if(  cancha  == ""  ){            
+            Swal.fire(
+                'Campos requeridos!',
+                "Selecciona una cancha",
+                'warning'
+            );
         }else if( fecha ==""){
-            alert("Selecciona una fecha");
+            Swal.fire(
+                'Campos requeridos!',
+                "Selecciona una fecha",
+                'warning'
+            );            
         }else if( idHorario == 0 ){
-            alert("Selecciona una horario");
+            Swal.fire(
+                'Campos requeridos!',
+                "Selecciona una horario",
+                'warning'
+            );
+            
         }else{
 
             $.ajax({
@@ -38,9 +60,16 @@ $(document).ready(function(){
             }).done(function(response){
 
                 if(response.mensaje!=undefined){
-                    alert( response.mensaje   );
-                }else{
-                    console.log(response);
+                    if(response.mensaje=="Reservacion registrada"){
+                        Swal.fire(
+                            'Exito!',
+                             response.mensaje,
+                            'success'
+                        );
+
+                    }else{
+                        Swal.fire(response.mensaje)
+                    }
                 }                
             });
         }
@@ -67,6 +96,9 @@ $(document).ready(function(){
     $("#edificio").change(function(){
         let idEdificio = $(this).val();
 
+        idHorario = 0;
+        $(".horarios").html("");
+
         $.ajax({
             url:"./?controlador=reservas&accion=consultar_canchas" , 
             method:"GET" , 
@@ -84,42 +116,51 @@ $(document).ready(function(){
                     canchasHTML+=generateOptionCancha(cancha);
                 });
             }else{                
-                alert(response.mensaje);
+                Swal.fire(response.mensaje)                
             }
 
             $("#cancha").html(canchasHTML);
 
         });
     });
-
+    
+    $("#cancha").change(function(){
+        idHorario =0 ;
+        $(".horarios").html("");
+    });
 
     $("#fecha").change(function(){
         
         let fecha = $(this).val();
         let cancha = $("#cancha").val();
         idHorario = 0;
-        $.ajax({
-            url:"./?controlador=horarios&accion=consultar_horarios", 
-            method:"GET",
-            data:{
-                fecha ,
-                cancha
-            },
-            dataType:"json" 
-        }).done(function(response){
 
-            let horasHTML = ``;
+        if(cancha!="" && cancha!=undefined){
+            $.ajax({
+                url:"./?controlador=horarios&accion=consultar_horarios", 
+                method:"GET",
+                data:{
+                    fecha ,
+                    cancha
+                },
+                dataType:"json" 
+            }).done(function(response){
+    
+                let horasHTML = ``;
+    
+                if(response.mensaje==undefined){
+                    response.forEach(  (hora)=>{
+                        horasHTML+= generateHora(hora);
+                    })
+                }else{
+                    Swal.fire(response.mensaje)
+                }
+    
+                $(".horarios").html(horasHTML);
+            });
 
-            if(response.mensaje==undefined){
-                response.forEach(  (hora)=>{
-                    horasHTML+= generateHora(hora);
-                })
-            }else{
-                alert(response.mensaje);
-            }
-
-            $(".horarios").html(horasHTML);
-        });
+        }
+        
 
     }); 
 

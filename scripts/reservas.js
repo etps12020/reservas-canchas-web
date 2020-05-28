@@ -34,5 +34,10 @@ $(document).ready(function(){
 
     });
 
+    // $("#fechaReservas").change(function(){
+
+    //     let fecha = $(this).value;
+    // });
+
     
 })

@@ -30,7 +30,11 @@ class ReservasController{
     }
 
     public function reservas(){
-        $reservas = $this->reservas->listarReservas();        
+        $fecha="";
+        if(isset($_GET['fecha'])){
+            $fecha=$_GET['fecha'];
+        }
+        $reservas = $this->reservas->listarReservas($fecha);        
         // echo json_encode($reservas);
         $this->view->show("reservas/reservas.php" , array("reservas" => $reservas));
     }
