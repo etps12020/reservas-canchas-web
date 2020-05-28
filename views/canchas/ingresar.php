@@ -15,6 +15,12 @@
   <h4 align="center">Bienvenido Administrador del Sistema</h4>
   <br><h2 align="center" style="background-color:#8A084B"><font color=White>Crear cancha</font></h2></br>
   <p align="center">Ingresar Datos de la Cancha </p>
+
+  <a href="./?controlador=canchas&accion=canchas"   class="btn btn-default">
+                <ion-icon name="arrow-back-outline"></ion-icon></ion-icon>  Ir a listado de canchas
+  </a>
+  <br><br><br>
+
   <form id="frmIngresarCancha">
 
 	
@@ -98,30 +104,14 @@
 	<br>
 		<div style="text-align: right;">
 			<button type="submit" class="btn btn-info btn-lg" >Confirmar</button> 
-			<button type="button" class="btn btn-link">< Cancelar</button>
+			
+		<a href="./?controlador=canchas&accion=canchas"   class="btn btn-default">
+						<ion-icon name="arrow-back-outline"></ion-icon></ion-icon>  Ir a listado de canchas
+		</a>
+		
 		</div>
 	</br>	
 	
-	<div class="modal fade" id="btnConfirmar" role="dialog">
-		<div class="modal-dialog">
-		
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-			<h4 class="modal-title" >Nota!</h4>
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			</div>
-			<div class="modal-body">
-			<p align="center">Cancha creada con Éxito!
-				<p>Fecha de creación: </p>
-				<p>Usuario que realizó la creación de cancha:</p>
-			</div>
-			<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-			</div>
-		</div>
-		</div>
-	</div>
 	
   </form>
 </div>

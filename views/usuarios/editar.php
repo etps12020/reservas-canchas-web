@@ -15,6 +15,12 @@
     <div class="container">
         <br><h2 align="center" style="background-color:#8A084B"><font color=White>Editar usuario</font></h2></br>
         <p align="center">Editar datos de usuario </p>
+
+        <a href="./?controlador=reservas&accion=reservas"   class="btn btn-default">
+                <ion-icon name="arrow-back-outline"></ion-icon></ion-icon>  Ir a listado reservas
+        </a>
+        <br><br><br>
+
         <form id="frmEditarUsuarios"   >
 
             <input type="hidden" name="id" id="id"  value="<?php  echo $_GET['id'];?>" >

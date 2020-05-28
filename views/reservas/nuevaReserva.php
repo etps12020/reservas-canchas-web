@@ -14,6 +14,11 @@
 
 	<div class="container">
 
+        <a href="./?controlador=reservas&accion=reservas"   class="btn btn-default">
+                <ion-icon name="arrow-back-outline"></ion-icon></ion-icon>  Ir a listado reservas
+        </a>
+        <br><br><br>
+
         <form   id="frmNuevaReserva"  >
 
 

@@ -22,7 +22,7 @@
         <br><br>
 
         <table class="table table-hover"  id="tblUsuarios"  >
-            <thead>
+            <thead class="bg-info text-white">
                 <th>Nombre</th>
                 <th>Usuario</th>
                 <th>Rol</th>

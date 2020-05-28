@@ -15,6 +15,11 @@
   <h4 align="center">Bienvenido Administrador del Sistema</h4>
   <br><h2 align="center" style="background-color:#8A084B"><font color=White>Editar edificio</font></h2></br>
   <p align="center">Editar Datos del edificio </p>
+
+  <a href="./?controlador=edificios&accion=edificios"   class="btn btn-default">
+                <ion-icon name="arrow-back-outline"></ion-icon></ion-icon>  Ir a listado de edificios
+  </a>
+
   <form  id="frmEditarEdificio" >
 
 	<input type="hidden" name="id" id="id"  value="<?php echo $_GET['id'];?>"  >
@@ -71,7 +76,9 @@
 	<br>
 		<div style="text-align: right;">
 			<button type="submit" class="btn btn-info btn-lg" >Confirmar</button> 
-			<button type="button" class="btn btn-link">< Cancelar</button>
+			<a href="./?controlador=edificios&accion=edificios"   class="btn btn-default">
+                <ion-icon name="arrow-back-outline"></ion-icon></ion-icon>  Ir a listado de edificios
+  			</a>
 		</div>
 	</br>
 

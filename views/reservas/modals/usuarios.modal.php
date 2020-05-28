@@ -11,7 +11,7 @@
       <div class="modal-body">
         
 
-        <table id="tblDuis" >
+        <table id="tblDuis"  class="table table-stripped"  >
             <thead>
                 <th>Dui</th>
             </thead>

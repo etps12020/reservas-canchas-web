@@ -55,4 +55,10 @@
   .hora-seleccionada{
     background: rgba( 79, 184, 182 , 0.5 );
   }
+
+  .row-dui:hover{
+    cursor:pointer;
+    background: rgba( 79, 184, 182 , 0.5 );
+  }
+
   </style>

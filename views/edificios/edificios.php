@@ -23,7 +23,7 @@
         <br>
 
         <table id="tblEdificios"  style="width:100%;">
-            <thead>
+            <thead class="bg-info text-white">
                 <th>Imagen</th>
                 <th>Nombre</th>
                 <th>Direccion</th>                

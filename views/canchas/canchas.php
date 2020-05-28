@@ -23,8 +23,8 @@
 		<br>
 		
 
-		<table class="table table-strippepd "  id="tblCanchas"   >
-			<thead>
+		<table class="table table-stripped "  id="tblCanchas"   >
+			<thead class="bg-info text-white">
 				<th>Imagen</th>
 				<th>Nombre</th>				
 				<th>Horario</th>			

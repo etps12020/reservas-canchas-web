@@ -16,6 +16,11 @@
         <h4 align="center">Bienvenido Administrador del Sistema</h4>
         <br><h2 align="center" style="background-color:#8A084B"><font color=White>Ingresar usuario</font></h2></br>
         <p align="center">Ingresar datos de usuario </p>
+
+        <a href="./?controlador=usuarios&accion=usuarios"   class="btn btn-default">
+                <ion-icon name="arrow-back-outline"></ion-icon></ion-icon>  Ir a listado usuarios
+        </a>
+        <br><br><br>
         <form id="frmIngresarUsuarios"  >
 
             <div class="form-group">

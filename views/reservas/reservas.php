@@ -18,18 +18,18 @@
         <div class="form-group">
             <a href="./?controlador=reservas&accion=nueva_reserva"   class="btn btn-primary">
                 <ion-icon name="add-circle-outline"></ion-icon> Agregar nueva reserva            
-            </a>
+            </a>            
         </div>
         
         
 
         <table id="tblReservas" style="width:100%; margin-top:5em; ">
-            <thead>
+            <thead class="bg-info text-white">
                 <th>Numero reservacion</th>
                 <th>Nombre completo</th>
                 <th>Telefono</th>
                 <th>Fecha reservacion</th>
-                <th>Fecha reservacion</th>                
+                <th>Fecha Creación</th>                
                 <th>Hora Reserva</th>
                 <th>Cancha</th>
                 <th>Estado</th>
