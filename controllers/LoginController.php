@@ -1,7 +1,15 @@
 <?php
 
 
+require_once("models/Reservas.php");
+
 class LoginController{
+
+    private $reservas;
+
+    public function __construct(){
+        $this->reservas = new Reservas();
+    }
 
     public function login(){
 
@@ -32,8 +40,10 @@ class LoginController{
 
         if(!isset($decodeResponse->mensaje)){
             $_SESSION[USUARIO] =  $decodeResponse[0];
+            $reservas =  $this->reservas->listarReservas("");
+            $_SESSION[LAST_ID_RESERVA] = $reservas[0]->numReservacion;
         }
-
+        
         curl_close($curl);
         echo $response;
     }

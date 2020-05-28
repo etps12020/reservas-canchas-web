@@ -19,7 +19,7 @@ class UsuariosController{
         $this->estadoUsuario = new EstadoUsuario();
     }
 
-    public function usuarios(){
+    public function usuarios(){        
         $idUsuario = $_SESSION[USUARIO]->id;
         $usuarios = $this->usuarios->listarUsuarios($idUsuario);
         $this->view->show( 'usuarios/usuarios.php' , array(  "usuarios" => $usuarios ));            
@@ -32,8 +32,7 @@ class UsuariosController{
     }
     
     public function ingresar(){
-        $rolesUsuarios  = $this->tiposUsuarios->listarRolesUsuarios();
-        
+        $rolesUsuarios  = $this->tiposUsuarios->listarRolesUsuarios();        
         $this->view->show("usuarios/ingresar.php" , array("rolesUsuarios" =>  $rolesUsuarios));
     }
 
