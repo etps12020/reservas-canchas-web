@@ -11,7 +11,7 @@ $(document).ready(function(){
             dataType:'json'  
         }).done(function(response){
             if(response.mensaje!=undefined){
-                alert(response.mensaje);
+                Swal.fire(response.mensaje)
             }
         });
 
