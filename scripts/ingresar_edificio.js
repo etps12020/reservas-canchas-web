@@ -62,7 +62,16 @@ $(document).ready(function(){
             dataType:"json" 
         }).done(function(response){
             if(response.mensaje!=undefined){
-                alert(response.mensaje)
+                if(response.mensaje=="Datos registrados"){
+                    Swal.fire(
+                        'Exito!',
+                         response.mensaje,
+                        'success'
+                    )
+                    $("#frmIngresarCancha")[0].reset();
+                }else{
+                    Swal.fire(response.mensaje)
+                }
             }
         });
 

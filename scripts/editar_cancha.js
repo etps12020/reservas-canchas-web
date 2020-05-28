@@ -60,7 +60,15 @@ $(document).ready(function(){
             dataType:'json'
         }).done(function(response){
             if(response.mensaje!=undefined){
-                alert(response.mensaje);
+                if(response.mensaje=="Datos actualizados"){
+                    Swal.fire(
+                        'Exito!',
+                         response.mensaje,
+                        'success'
+                    )
+                }else{
+                    Swal.fire(response.mensaje)
+                }
             }
         });
     

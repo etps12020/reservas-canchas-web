@@ -41,6 +41,7 @@ class UsuariosController{
         $rolesUsuarios  = $this->tiposUsuarios->listarRolesUsuarios();
         $usuario = $this->usuarios->obtenerUsuario($_GET['id'])[0]; 
         $estadosUsuarios = $this->estadoUsuario->listarEstadosUsuarios();       
+        // echo json_encode($usuario);
         $this->view->show("usuarios/editar.php" ,   
          array(   "rolesUsuarios"=>$rolesUsuarios , 
                   "usuario" => $usuario , 

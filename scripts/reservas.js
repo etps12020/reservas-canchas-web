@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+
     $("#tblReservas").DataTable({
         language:{
             "sProcessing":     "Procesando...",

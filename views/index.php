@@ -13,6 +13,7 @@
         include ("views/partials/nav.php");
     ?>
 
+  <h4 style="text-align:center;">Bienvenido <?php echo $usuario->nombre;?></h4>
     
   <!-- Galeria -->
   <header class="">

@@ -20,7 +20,7 @@
     <!-- Sidebar -->
     <nav id="sidebar" class="active">
         <div class="sidebar-header pull-right">
-            <button class="btn btn-default sidebarCollapse "  > <ion-icon name="grid-outline"></ion-icon>  </button>    <span style="margin-left:1.5em;">Reservas Utec</span>
+            <button class="btn btn-default sidebarCollapse "  > <div> </div> <ion-icon name="grid-outline"></ion-icon>  </button>  <img src="https://pluspng.com/img-png/user-png-icon-male-user-icon-512.png" width="50"  >  <span style="margin-left:1em;"><?php echo $_SESSION[USUARIO]->nombre;?></span>
         </div>
 
         <ul class="list-unstyled components">            

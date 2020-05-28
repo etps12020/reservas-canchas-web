@@ -43,7 +43,7 @@
 
             <div class="form-group">
                 <label for="correo">Correo:</label>
-                <input type="text" name="correo" id="correo" valuee="<?php  echo $usuario->correo?>"   class="form-control"  placeholder="correo" required/>
+                <input type="text" name="correo" id="correo" value="<?php  echo $usuario->correo?>"   class="form-control"  placeholder="correo" required/>
             </div>
 
             <div class="form-group">

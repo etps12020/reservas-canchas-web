@@ -13,7 +13,7 @@ $(document).ready(function(){
             dataType:'json'
         }).done(function(response){
             if(response.mensaje){
-                alert(response.mensaje);
+                Swal.fire(response.mensaje)
             }
         });
 

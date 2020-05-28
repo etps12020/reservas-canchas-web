@@ -12,7 +12,7 @@
 
 
 <div class="container">
-  <h4 align="center">Bienvenido Administrador del Sistema</h4>
+  <!-- <h4 align="center">Bienvenido Administrador del Sistema</h4> -->
   <br><h2 align="center" style="background-color:#8A084B"><font color=White>Editar cancha</font></h2></br>
   <p align="center">Editar Datos de la Cancha </p>
 

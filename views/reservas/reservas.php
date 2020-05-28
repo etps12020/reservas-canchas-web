@@ -20,6 +20,17 @@
                 <ion-icon name="add-circle-outline"></ion-icon> Agregar nueva reserva            
             </a>            
         </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Fecha:</label>
+                    <input type="date" name="" id="" class="form-control"  min="<?php echo date("Y-m-d")?>"  >
+                </div>
+            </div>        
+            
+        </div>
         
         
 

@@ -100,7 +100,7 @@ class Edificios{
         $response = curl_exec($curl);
 
         curl_close($curl);
-        return json_encode($response);
+        return json_decode($response);
     }
 
     public function actualizarEdificio($id ,  $nombre  , $direccion  ,  $descripcion , $imagen  , $estado  ){

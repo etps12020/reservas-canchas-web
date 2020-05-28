@@ -36,10 +36,7 @@ class EdificiosController{
         $nombre = $_POST['nombre'];
         $direccion = $_POST['direccion'];
         $descripcion = $_POST['descripcion'];
-
-
         $response = $this->edificios->ingresarEdificio($nombre , $direccion , $descripcion , $imagen  );
-
         echo json_encode($response);
     }
 

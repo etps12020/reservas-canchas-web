@@ -15,8 +15,8 @@ class IndexController{
         if(!isset($_SESSION[USUARIO])){
             $this->view->show('usuarios/login.php');        
         }else{
-            //$vista->show('index.php', array("nombre" => "Juan"));        
-            $this->view->show('index.php');        
+            $usuario = $_SESSION[USUARIO];
+            $this->view->show('index.php', array("usuario"=>$usuario));        
         }
         
     }
