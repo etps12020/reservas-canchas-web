@@ -19,7 +19,13 @@ $(document).ready(function(){
         }).done(function(response){
           
           if(response.mensaje){
-            alert(response.mensaje);
+            
+            Swal.fire({
+              icon: 'error',
+              title: '',
+              text: response.mensaje
+            
+            })
           }else{
 
             if(response.length){

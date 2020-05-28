@@ -11,6 +11,11 @@ class Reservas{
         }else{
           $params ="";
         }
+
+        if($_SESSION[USUARIO]->idRol==3){
+          $id= $_SESSION[USUARIO]->id;
+          $params = "{\n\n\"usuario\" : \"$id\"\n}";
+        }
               
 
         curl_setopt_array($curl, array(

@@ -21,7 +21,9 @@
             </a>            
         </div>
 
-
+        <?php
+            if($_SESSION[USUARIO]->idRol!=3){
+        ?>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -38,6 +40,9 @@
                 </a>
             </div>            
         </div>
+        <?php
+            }
+        ?>
         
         
         <?php
@@ -46,10 +51,24 @@
             <table id="tblReservas" style="width:100%; margin-top:5em; ">
                 <thead class="bg-info text-white">
                     <th>Numero reservacion</th>
-                    <th>Nombre completo</th>
-                    <th>Telefono</th>
+                    <?php
+                      if($_SESSION[USUARIO]->idRol!=3){
+                    ?>
+                        <th>Nombre completo</th>
+                        <th>Telefono</th>
+                    <?php
+                      }
+                    ?>
+                    
                     <th>Fecha reservacion</th>
-                    <th>Fecha Creación</th>                
+                    <?php
+                      if($_SESSION[USUARIO]->idRol!=3){
+                    ?>
+                        <th>Fecha Creación</th>                
+                    <?php
+                      }
+                    ?>
+                    
                     <th>Hora Reserva</th>
                     <th>Cancha</th>
                     <th>Estado</th>
@@ -61,10 +80,26 @@
                             ?>
                             <tr>
                                 <td><?php echo $reserva->numReservacion;?></td>
-                                <td><?php echo $reserva->nombreCompleto;?></td>
-                                <td><?php echo $reserva->telefono;?></td>
+                                <?php
+                                    if($_SESSION[USUARIO]->idRol!=3){
+                                ?>
+                                    <td><?php echo $reserva->nombreCompleto;?></td>
+                                    <td><?php echo $reserva->telefono;?></td>
+                                <?php
+                                }
+                                ?>
+                                
+                                
                                 <td><?php echo date("d/m/Y" , strtotime($reserva->fechaReservacion)  );?></td>
-                                <td><?php echo date("d/m/Y" ,  strtotime($reserva->fechayHoraCreacion)  );?></td>
+                                <?php
+                                    if($_SESSION[USUARIO]->idRol!=3){
+                                ?>
+                                    <td><?php echo date("d/m/Y" ,  strtotime($reserva->fechayHoraCreacion)  );?></td>
+                                <?php
+                                }
+                                ?>
+                                
+                                
                                 <td><?php echo date("H:i:s A" , strtotime($reserva->horaInicio)  );?></td>
                                 <td><?php echo $reserva->cancha;?></td>
                                 <td><?php echo $reserva->estado;?></td>

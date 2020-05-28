@@ -67,7 +67,7 @@ class ReservasController{
         $idUsuario = $_SESSION[USUARIO]->id;
         $idRol  = $_SESSION[USUARIO]->idRol;
 
-        $dui =$_POST['dui'];
+        
         $fecha = $_POST['fecha'];
         $idHorario =  $_POST['idHorario'];
         $cancha = $_POST['cancha'];
@@ -76,6 +76,7 @@ class ReservasController{
         if($idRol == 3){
             $response = $this->reservas->ingresar_reserva($fecha , $idUsuario , null  ,  null , $idHorario  , $cancha , $tipo);
         }else{
+            $dui =$_POST['dui'];
             $response = $this->reservas->ingresar_reserva($fecha , null , $idUsuario  ,  $dui , $idHorario  , $cancha , $tipo);
         }
 

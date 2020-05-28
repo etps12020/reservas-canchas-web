@@ -21,7 +21,9 @@
 
         <form   id="frmNuevaReserva"  >
 
-
+            <?php
+                if($_SESSION[USUARIO]->idRol != 3){
+            ?>
             <div class="form-group">
                 <label for="dui">Solicitante:</label>
                 <div class="input-group mb-2">
@@ -36,6 +38,9 @@
                     </div>
                 </div>                
             </div>
+            <?php
+                }
+            ?>
 
             <div class="form-group">
                 <label for="tipoReserva">Tipo de reserva:</label>
