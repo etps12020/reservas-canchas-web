@@ -14,13 +14,13 @@
 
 	<div class="container">
 
-        <form action="">
+        <form  id="frmActualizarReserva" >
 
             <div class="form-group">
-                <label for="">Numero reserva</label>
-                <input type="text" name="" id="" class="form-control" 
+                <label for="numReserva">Numero reserva</label>
+                <input type="text" name="numReserva" id="numReserva" class="form-control" 
                 value="<?php echo $detalleReserva->numReservacion;?>"
-                placeholder="Numero reserva" disabled/>
+                placeholder="Numero reserva" readonly/>
             </div>
 
 
@@ -65,28 +65,29 @@
             </div>
 
             <div class="form-group">
-                <label for="">Estado Reserva:</label>
-                <select name="" id="" class="form-control">
-                    <option value="">Estado 1</option>
-                    <option value="">Estado 2</option>
-                    <option value="">Estado 3</option>                    
+                <label for="estado">Estado Reserva:</label>
+                <select name="estado" id="estado" class="form-control">
+                    <?php
+                        foreach ($estadosReservas as $key => $estado) {
+                            $selected = ($estado->id == $detalleReserva->idEstado) ? "selected" : "";
+                            ?>
+                            <option value="<?php echo $estado->id;?>"  <?php echo $selected;?>   ><?php echo $estado->estado;?></option>
+                            <?php
+                        }
+                    ?>                 
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="">Comentarios:</label>
-                <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Comentarios">            
-                </textarea>
+                <label for="comentario">Comentarios:</label>
+                <textarea name="comentario" id="comentario" cols="30" rows="10" class="form-control" placeholder="Comentarios"></textarea>
             </div>
 
             <div class="form-group text-center">
-                <button class="btn btn-success">Guardar cambios</button>
+                <button type="submit" class="btn btn-success">Guardar cambios</button>
                 <a  href="./?controlador=reservas&accion=reservas"  class="btn btn-defaul">Regresar a reservas</a>
             </div>
-            
-
-
-
+        
         </form>
 		
 	</div>
@@ -94,6 +95,6 @@
 	<?php
         include ("views/partials/scripts.php");
     ?> 
-	
+	<script src="scripts/actualizar_reserva.js" ></script>
 </body>
 </html>
