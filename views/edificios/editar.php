@@ -15,8 +15,9 @@
   <h4 align="center">Bienvenido Administrador del Sistema</h4>
   <br><h2 align="center" style="background-color:#8A084B"><font color=White>Editar edificio</font></h2></br>
   <p align="center">Editar Datos del edificio </p>
-  <form>
+  <form  id="frmEditarEdificio" >
 
+	<input type="hidden" name="id" id="id"  value="<?php echo $_GET['id'];?>"  >
 	
   <div class="form-group text-center">
 		<img 
@@ -24,56 +25,57 @@
 			src="data:image/png;base64 , <?php echo $edificio->imagen;?>  ";															
 			width="350"  
 			height="300"  
+			id="imgEdificio"
 	/>
 	</div>
 
+	
+	<!--Adjuntar foto del edificio -->
+	<br><div class="form-group">
+		<label for="imagenAdjunta">Adjuntar foto:</label>
+		<input type="file" name="imagenAdjunta" id="imagenAdjunta"   accept=".pdf,.jpg,.png" multiple>
+    </div></br>
+
     <div class="form-group">
       <label for="nombre">Nombre del Edificio:</label>
-      <input type="nombre" class="form-control"  value="<?php echo $edificio->nombre;?>"  id="nombre" placeholder="Ingrese el nombre del edificio">
+      <input type="nombre" class="form-control"  value="<?php echo $edificio->nombre;?>"  id="nombre" name="nombre"  placeholder="Ingrese el nombre del edificio">
     </div>
     <div class="form-group">
       <label for="direccion">Dirección:</label>
-      <input type="direccion" class="form-control" value="<?php echo $edificio->direccion;?>"  id="direccion" placeholder="Ingrese la dirección del edificio">
+      <input type="direccion" class="form-control" value="<?php echo $edificio->direccion;?>"  id="direccion" name="direccion"   placeholder="Ingrese la dirección del edificio">
     </div>
 	
 	<div class="form-group">
       <label for="descripcion">Descripción:</label>
-      <input type="descripcion" class="form-control"  value="<?php echo $edificio->descripcion;?>"  id="descripcion" placeholder="Ingrese la descripción del edificio">
+      <input type="descripcion" class="form-control"  value="<?php echo $edificio->descripcion;?>"  id="descripcion" name="descripcion"   placeholder="Ingrese la descripción del edificio">
     </div>
 
-	<!--Adjuntar foto del edificio -->
-	<br><div class="form-group">
-		<label for="adjuntoFoto">Adjuntar foto:</label>
-		<input type="file" name="adjunto" accept=".pdf,.jpg,.png" multiple>
-    </div></br>
+	<div class="form-group">
+		<label for="estado">Estado:</label>
+		<select name="estado" id="estado" class="form-control">
+			<?php
+				foreach ($estadosEdificio as $key => $estado) {
+					$selected  = ($estado->id==$edificio->idEstado) ? "selected"  : "";
+					?>
+						<option value="<?php echo $estado->id;?>" <?php echo $selected;?>  ><?php echo $estado->estado;?></option>
+					<?php
+				}
+			?>
+		</select>
+	
+	
+	</div>
+
+
 
 	<br>
 		<div style="text-align: right;">
-			<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#btnConfirmar">Confirmar</button> 
+			<button type="submit" class="btn btn-info btn-lg" >Confirmar</button> 
 			<button type="button" class="btn btn-link">< Cancelar</button>
 		</div>
 	</br>
 
-	<div class="modal fade" id="btnConfirmar" role="dialog">
-		<div class="modal-dialog">
-		
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-			<h4 class="modal-title" >Nota!</h4>
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			</div>
-			<div class="modal-body">
-			<p align="center">Edificio creado con Éxito!
-				<p>Fecha de creación: </p>
-				<p>Usuario que realizó la creación de edificio:</p>
-			</div>
-			<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-			</div>
-		</div>
-		</div>
-	</div>
+	
 	
   </form>
 </div>
@@ -83,6 +85,6 @@
     <?php
         include ("views/partials/scripts.php");
     ?>    
-    
+    <script src="scripts/actualizar_edificio.js" ></script>       
 </body>
 </html>

@@ -15,7 +15,7 @@ $(document).ready(function(){
                     var canvas = document.createElement("canvas");
                     var ctx = canvas.getContext("2d");
             
-                    canvas.width = 100; // nuevo ancho
+                    canvas.width = 200; // nuevo ancho
                     canvas.height = 100; // nuevo alto
                     var image = new Image();                                
                     image.onload = function(e) {

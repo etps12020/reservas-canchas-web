@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-    let imagen=$("#imgCancha").attr("src");
+
+    let imagen="";
 
     var imagesPreview = function(input) {
 
@@ -28,7 +29,7 @@ $(document).ready(function(){
                         let url =canvas.toDataURL();
                         resampledImage.src = url;
                         imagen = url;
-                        $("#imgCancha").attr("src" , url);
+                        $("#imgEdificio").attr("src" , url);
                         
                     };
                     
@@ -46,25 +47,25 @@ $(document).ready(function(){
         imagesPreview(this);      
     });
 
-    $("#frmEditarCancha").submit( function(){
-        event.preventDefault();
+
+    $("#frmIngresarEdificio").submit(function(event){
+        event.preventDefault()        
 
         let form = $(this).serializeArray();
         let base64String = imagen.substr( imagen.indexOf(",")+1 );
         form.push({name: 'imagen', value: base64String});
-        
+
         $.ajax({
-            url: './?controlador=canchas&accion=actualizar' ,
-            method: 'POST',
-            data: form ,
-            dataType:'json'
+            url: "./?controlador=edificios&accion=insertar" , 
+            method: 'POST' , 
+            data:form , 
+            dataType:"json" 
         }).done(function(response){
             if(response.mensaje!=undefined){
-                alert(response.mensaje);
+                alert(response.mensaje)
             }
         });
-    
+
     });
 
-
-})
+});

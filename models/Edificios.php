@@ -17,7 +17,7 @@ class Edificios{
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "GET",
-        CURLOPT_POSTFIELDS =>"{\n \"id\" : 1 ,\n  \"accion\" : \"listar\"\n}",
+        CURLOPT_POSTFIELDS =>"",
         CURLOPT_HTTPHEADER => array(
             "Content-Type: text/plain"
         ),
@@ -76,6 +76,63 @@ class Edificios{
         
 
     }
+
+    public function ingresarEdificio($nombre , $direccion , $descripcion , $imagen  ){
+
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => BASE_URL."/edificio.php",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS =>"{\n\t\"nombre\" : \"$nombre\"\t , \n\t\"direccion\": \"$direccion\" , \n\t\"descripcion\" : \"$descripcion\" , \n\t\"imagen\" : \"$imagen\"\n\n}",
+        CURLOPT_HTTPHEADER => array(
+            "Content-Type: application/json"
+        ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        return json_encode($response);
+    }
+
+    public function actualizarEdificio($id ,  $nombre  , $direccion  ,  $descripcion , $imagen  , $estado  ){
+
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => BASE_URL."/edificio.php",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "PUT",
+        CURLOPT_POSTFIELDS =>"{\n\t\"id\" :$id , \n\t\"nombre\" : \"$nombre\"\t , \n\t\"direccion\": \"$direccion\" , \n\t\"descripcion\" : \"$descripcion\" , \n\t\"imagen\" : \"$imagen\" , \n\t\"estado\" : $estado\n\n}",
+        CURLOPT_HTTPHEADER => array(
+            "Content-Type: application/json"
+        ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        return json_decode($response);
+
+    }
+
+
+    
+
 
 }
 

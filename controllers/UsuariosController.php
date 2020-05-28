@@ -26,7 +26,9 @@ class UsuariosController{
     }
 
     public function perfil(){
-        $this->view->show('usuarios/perfil.php');
+        $usuario = $_SESSION[USUARIO];
+        // echo json_encode($usuario);
+        $this->view->show('usuarios/perfil.php' , array("usuario"=> $usuario));
     }
     
     public function ingresar(){
@@ -73,10 +75,21 @@ class UsuariosController{
         $response =$this->usuarios->actualizarUsuarioRolAdmin
         ($id , $dui , $nombre  , $correo , $carnet , $telefono , $password , $rol , $estado);
         echo json_encode($response);
-
     }
 
-    
+  
+    public function actualizarPerfil(){
+
+
+        $id = $_POST['id'];
+        $telefono = $_POST['telefono'];
+        $password = $_POST['password'];
+
+        $response = $this->usuarios->actualizarPerfil($id , $telefono , $password);
+        echo json_encode($response);
+
+
+    }
 
 }
 

@@ -38,7 +38,8 @@ class CanchasController{
         $estadosCancha = $this->estadoCancha->listarEstadosCanchas();
         $tiposCanchas=$this->tiposCanchas->listarTiposCanchas();
         $edificios =  $this->edificios->listarEdificiosActivos();
-        $cancha= $this->canchas->obtenerCancha($_GET['id'])[0];        
+        $cancha= $this->canchas->obtenerCancha($_GET['id'])[0];    
+                
         $this->view->show('canchas/editar.php'  ,  
         array("edificios"=> $edificios , 
             "tiposCanchas" => $tiposCanchas , 
@@ -78,13 +79,7 @@ class CanchasController{
         $response = $this->canchas->actualizar( $id , $nombre  , $descripcion , $telefono , $horaInicio , $horaFin , $idEdificio , $idTipoCancha , $estado,  $imagen);
         echo json_encode($response);
     }
-    /*Manejo de vistas*/
 
-
-    /*Manejo de solicitudes Api*/
-
-
-    /*Manejo de solicitudes Api*/
 
 
 }

@@ -85,7 +85,7 @@
 				foreach ($tiposCanchas as $key => $tipo) {
 					$selected = ($tipo->id == $cancha->idTipoCancha )? "selected" : "";
 					?>
-						<option value="<?php echo $tipo->id;?>"><?php echo $tipo->tipo ;?></option>
+						<option value="<?php echo $tipo->id;?>" <?php echo $selected;?>><?php echo $tipo->tipo ;?></option>
 					<?php
 				}
 			?>
@@ -97,8 +97,9 @@
 		<select name="estado" id="estado" class="form-control">
 			<?php
 				foreach ($estadosCancha as $key => $estado) {
+					$selected = ($estado->id == $cancha->idEstado) ? "selected" : "";
 					?>
-					<option value="<?php echo $estado->id?>"><?php echo $estado->estado;?></option>
+					<option value="<?php echo $estado->id?>"  <?php echo $selected;?> ><?php echo $estado->estado;?></option>
 					<?php
 				}
 			?>
